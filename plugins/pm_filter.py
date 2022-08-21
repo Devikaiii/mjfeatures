@@ -202,12 +202,12 @@ async def next_page(bot, query):
     if n_offset == 0:
         btn.append(
             [InlineKeyboardButton("⏪️ Back", callback_data=f"next_{req}_{key}_{off_set}"),
-             InlineKeyboardButton(f"🔰 Pages {round(int(offset) / 10) + 1} / {round(total / 10)}",
+             InlineKeyboardButton(f"📃 Pages {round(int(offset) / 10) + 1} / {round(total / 10)}",
                                   callback_data="pages")]
         )
     elif off_set is None:
         btn.append(
-            [InlineKeyboardButton(f"🔰 Pages {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
+            [InlineKeyboardButton(f"📃 Pages {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
              InlineKeyboardButton("Next ⏩️", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
@@ -230,7 +230,7 @@ async def next_page(bot, query):
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer("🤓 എടാ മോനു ഇത് നിനക്കുള്ളതല്ല.", show_alert=True)
+        return await query.answer("സ്വന്തമായി റിക്വസ്റ്റ് ചെയ്യ് Nenba 🙂", show_alert=True)
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
@@ -245,7 +245,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('ഈ പടം ഇല്ല Nenba. 🥲')
+            k = await query.message.edit('ഈ പടം ഇല്ല Nenba 🥲')
             await asyncio.sleep(10)
             await k.delete()
 
@@ -304,7 +304,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 except:
                     pass
             else:
-                await query.answer("😅 പോ അണ്ണാച്ചി പിന്നെ വാ.", show_alert=True)
+                await query.answer("സ്വന്തമായി റിക്വസ്റ്റ് ചെയ്യ് Nenba 🙂", show_alert=True)
     elif "groupcb" in query.data:
         await query.answer()
 
